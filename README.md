@@ -1,0 +1,1 @@
+# static_test_of_wing
