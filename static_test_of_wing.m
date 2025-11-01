@@ -248,3 +248,20 @@ end
 % wing_lever_system(1, 0)   % Равномерная нагрузка
 % wing_lever_system(0, 2)   % Линейная нагрузка от 0 до 2
 % wing_lever_system(0.5, 1) % Комбинированная нагрузка
+% Тест для различных нагрузок
+test_cases = [
+    1, 0;    % равномерная
+    0, 2;    % линейная от 0 до 2  
+    0.5, 1;  % комбинированная
+    2, -1;   % убывающая
+];
+
+for i = 1:size(test_cases, 1)
+    a = test_cases(i, 1);
+    b = test_cases(i, 2);
+    [x4, R, x2, x3] = calculate_lever_points(a, b);
+    fprintf('a=%.1f, b=%.1f -> x4=%.4f\n', a, b, x4);
+end
+
+% Детальный анализ для конкретного случая
+wing_lever_system(0, 2);
